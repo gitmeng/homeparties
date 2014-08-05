@@ -1,0 +1,38 @@
+<section class="row" data-ng-controller="UsersController">
+	<h3 class="col-md-12 text-center">Skapa användare</h3>
+	<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
+		<form data-ng-submit="signup()" class="signin form-horizontal" novalidate autocomplete="off">
+			<fieldset>
+				<div class="form-group">
+					<label for="firstName">Förnamn</label>
+					<input type="text" required id="firstName" name="firstName" class="form-control" data-ng-model="credentials.firstName" placeholder="Förnamn">
+				</div>
+				<div class="form-group">
+					<label for="lastName">Efternamn</label>
+					<input type="text" id="lastName" name="lastName" class="form-control" data-ng-model="credentials.lastName" placeholder="Efternamn">
+				</div>
+				<div class="form-group">
+					<label for="email">Email</label>
+					<input type="text" id="email" name="email" class="form-control" data-ng-model="credentials.email" placeholder="Email">
+				</div>
+				<div class="form-group">
+					<label for="password">Lösenord</label>
+					<input type="password" id="password" name="password" class="form-control" data-ng-model="credentials.password" placeholder="Lösenord">
+				</div>
+				<div class="form-group">
+					<label for="role">Roll</label>
+					<div id="role">
+						<input type="radio" id="role1" name="role" data-ng-model="credentials.role" placeholder="Roll" value="user"> User <br/>
+						<input type="radio" id="role2" name="role" data-ng-model="credentials.role" placeholder="Roll" value="admin"> Admin
+					</div>
+				</div>
+				<div class="text-center form-group">
+					<button type="submit" class="btn btn-large btn-primary">Skapa användare</button>
+				</div>
+				<div data-ng-show="error" class="text-center text-danger">
+					<strong data-ng-bind="error"></strong>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+</section>

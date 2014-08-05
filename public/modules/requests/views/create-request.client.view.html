@@ -1,0 +1,65 @@
+<section data-ng-controller="RequestsController">
+	<div class="page-header">
+		<h1>Nytt Homeparty</h1>
+	</div>
+	<div class="col-md-12">
+		<form class="form-horizontal" data-ng-submit="create()" novalidate>
+			<fieldset>
+				<div class="form-group">
+					<label class="control-label" for="title">Titel (Obligatorisk)</label>
+					<div class="controls">
+						<input type="text" data-ng-model="title" id="title" class="form-control" placeholder="Title" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="date">Datum</label>
+					<div class="controls">
+						<input type="date" data-ng-model="date" id="date" class="form-control" placeholder="yyyy-MM-dd">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="time">Tid</label>
+					<div class="controls">
+						<input type="time" data-ng-model="time" id="time" class="form-control" placeholder="mm:hh">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="location">Plats</label>
+					<div class="controls">
+						<input type="text" data-ng-model="location" id="location" class="form-control" placeholder="Plats/adress" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="city">Stad</label>
+					<div class="controls">
+						<input type="text" data-ng-model="city" id="city" class="form-control" placeholder="Stad" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="contactName">Förfrågare</label>
+					<div class="controls">
+						<input type="text" data-ng-model="contactName" id="contactName" class="form-control" placeholder="Namn" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="contactEmail">Förfrågarens e-postadress</label>
+					<div class="controls">
+						<input type="text" data-ng-model="contactEmail" id="contactEmail" class="form-control" placeholder="E-postadress" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="otherInfo">Övrig information</label>
+					<div class="controls">
+						<textarea data-ng-model="otherInfo" id="otherInfo" class="form-control" cols="30" rows="10" placeholder="T.ex. Portkod, Antal personer mm."></textarea>
+					</div>
+				</div>
+				<div class="form-group">
+					<input type="submit" class="btn btn-default">
+				</div>
+				<div data-ng-show="error" class="text-danger">
+					<strong data-ng-bind="error"></strong>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+</section>
