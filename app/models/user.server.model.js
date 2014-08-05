@@ -13,7 +13,7 @@ var mongoose = require('mongoose'),
 var validateLocalStrategyProperty = function(property) {
 	return ((this.provider !== 'local' && !this.updated) || property.length);
 };
-
+	
 /**
  * A Validation function for local strategy password
  */
@@ -43,19 +43,17 @@ var UserSchema = new Schema({
 	},
 	email: {
 		type: String,
-		unique: true,
 		trim: true,
 		default: '',
 		validate: [validateLocalStrategyProperty, 'Please fill in your email'],
 		match: [/.+\@.+\..+/, 'Please fill a valid email address']
 	},
-	/*
 	username: {
 		type: String,
 		unique: true,
 		required: 'Please fill in a username',
 		trim: true
-	},*/
+	},
 	password: {
 		type: String,
 		default: '',
