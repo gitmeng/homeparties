@@ -16,14 +16,18 @@
 					<input type="text" id="email" name="email" class="form-control" data-ng-model="credentials.email" placeholder="Email">
 				</div>
 				<div class="form-group">
+					<label for="username">Användarnamn</label>
+					<input type="text" id="username" name="username" class="form-control" data-ng-model="credentials.username" placeholder="Username">
+				</div>
+				<div class="form-group">
 					<label for="password">Lösenord</label>
 					<input type="password" id="password" name="password" class="form-control" data-ng-model="credentials.password" placeholder="Lösenord">
 				</div>
 				<div class="form-group">
 					<label for="role">Roll</label>
 					<div id="role">
-						<input type="radio" id="role1" name="role" data-ng-model="credentials.role" placeholder="Roll" value="user"> User <br/>
-						<input type="radio" id="role2" name="role" data-ng-model="credentials.role" placeholder="Roll" value="admin"> Admin
+						<input type="radio" id="role1" name="role" data-ng-model="credentials.roles" placeholder="Roll" value="user"> User <br/>
+						<input type="radio" id="role2" name="role" data-ng-model="credentials.roles" placeholder="Roll" value="admin"> Admin
 					</div>
 				</div>
 				<div class="text-center form-group">
