@@ -6,7 +6,7 @@
 		<a data-ng-repeat="request in requests" data-ng-href="#!/requests/{{request._id}}" class="list-group-item">
 			<small class="list-group-item-text">
 				Publicerades 
-				<span data-ng-bind="request.created | date:'mediumDate'"></span>
+				<span data-ng-bind="request.created | date:'yyyy-MM-dd, hh:mm'"></span>
 			</small>
 			<h4 class="list-group-item-heading" data-ng-bind="request.title"></h4>
 			<p class="list-group-item-text" data-ng-bind="request.startDate"></p>
@@ -14,6 +14,6 @@
 		</a>
 	</div>
 	<div class="alert alert-warning text-center" data-ng-if="requests.$resolved && !requests.length">
-		Inga homeparties ännu. Skapa en <a href="/#!/requests/create">här</a>.
+		Det finns för närvarande inga homeparty förfrågningar.
 	</div>
 </section>
