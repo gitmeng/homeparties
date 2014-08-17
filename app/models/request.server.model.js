@@ -15,41 +15,47 @@ var RequestSchema = new Schema({
 		type: Date,
 		default: Date.now
 	},
+	published: {
+		type: Boolean,
+		default: false
+	},
 	title: {
 		type: String,
-		default: '',
 		trim: true,
 		required: 'Titel måste anges.'
 	},
-	date: {
-		type: Date,
-		min: Date.now
-	},
-	time: {
+	dateTime: {
 		type: Date
 	},
 	location: {
 		type: String,
+		default: '',
 		trim: true
 	},
 	city: {
-		type: String
+		type: String,
+		default: '',
+		trim: true
 	},
 	contactName: {
-		type: String
+		type: String,
+		default: '',
+		trim: true
 	},
 	contactEmail: {
-		type: String
+		type: String,
+		default: '',
+		trim: true
 	},
 	otherInfo: {
 		type: String,
 		default: '',
 		trim: true
-	},
+	}/*,
 	speaker: {
 		type: Schema.ObjectId,
 		ref: 'User'
-	}
+	}*/
 });
 
 // Compiling the Request schema into a Model

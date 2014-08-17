@@ -13,6 +13,10 @@ angular.module('requests').config(['$stateProvider',
 			url: '/requests/create',
 			templateUrl: 'modules/requests/views/create-request.client.view.html'
 		}).
+		state('myRequests', {
+			url: '/requests/myrequests',
+			templateUrl: 'modules/requests/views/my-requests.client.view.html'
+		}).
 		state('viewRequest', {
 			url: '/requests/:requestId',
 			templateUrl: 'modules/requests/views/view-request.client.view.html'

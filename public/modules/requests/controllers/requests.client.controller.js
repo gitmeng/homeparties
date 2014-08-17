@@ -7,7 +7,7 @@ angular.module('requests').controller('RequestsController', ['$scope', '$statePa
 		$scope.create = function() {
 			var request = new Requests({
 				title: this.title,
-				date: this.date,
+				dateTime: this.dateTime,
 				time: this.time,
 				location: this.location,
 				city: this.city,
@@ -22,7 +22,7 @@ angular.module('requests').controller('RequestsController', ['$scope', '$statePa
 			});
 
 			this.title = '';
-			this.date = null;
+			this.dateTime = null;
 			this.time = null;
 			this.location = '';
 			this.city = '';

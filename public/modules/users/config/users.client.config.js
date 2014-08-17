@@ -33,8 +33,8 @@ angular.module('users').config(['$httpProvider',
 angular.module('users').run(['Menus',
 	function(Menus) {
 		// Set top bar menu items
-		Menus.addMenuItem('topbar', 'Medlemmar', 'users', 'dropdown');
-		Menus.addSubMenuItem('topbar', 'users', 'Alla Medlemmar');
-		Menus.addSubMenuItem('topbar', 'users', 'Hantera Medlemmar', 'users/create', undefined, undefined);
+		Menus.addMenuItem('topbar', 'Användare', 'users', 'dropdown');
+		Menus.addSubMenuItem('topbar', 'users', 'Alla användare');
+		Menus.addSubMenuItem('topbar', 'users', 'Skapa användare', 'users/create', undefined, undefined);
 	}
 ]);

@@ -1,24 +1,36 @@
 <section data-ng-controller="RequestsController" data-ng-init="findOne()">
 	<div class="page-header">
-		<h1>Edit Request</h1>
+		<h1>Ändra förfrågan</h1>
 	</div>
 	<div class="col-md-12">
 		<form class="form-horizontal" data-ng-submit="update()" novalidate>
 			<fieldset>
 				<div class="form-group">
-					<label class="control-label" for="title">Title</label>
+					<label class="control-label" for="title">Titel (Obligatorisk)</label>
 					<div class="controls">
-						<input type="text" data-ng-model="request.title" id="title" class="form-control" placeholder="Title" required>
+						<input type="text" data-ng-model="request.title" id="title" class="form-control" placeholder="Titel" required>
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="control-label" for="content">Content</label>
+					<label class="control-label" for="date">Datum</label>
 					<div class="controls">
-						<textarea data-ng-model="request.content" id="content" class="form-control" cols="30" rows="10" placeholder="Content"></textarea>
+						<input type="date" data-ng-model="date" id="date" class="form-control" placeholder="yyyy-MM-dd">
 					</div>
 				</div>
 				<div class="form-group">
-					<input type="submit" value="Update" class="btn btn-default">
+					<label class="control-label" for="time">Tid</label>
+					<div class="controls">
+						<input type="text" data-ng-model="time" id="time" class="form-control" placeholder="mm:hh">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="content">Övrig information</label>
+					<div class="controls">
+						<textarea data-ng-model="request.otherInfo" id="content" class="form-control" cols="30" rows="10" placeholder="Övrig information"></textarea>
+					</div>
+				</div>
+				<div class="form-group">
+					<input type="submit" value="Uppdatera" class="btn btn-default">
 				</div>
 				<div data-ng-show="error" class="text-danger">
 					<strong data-ng-bind="error"></strong>

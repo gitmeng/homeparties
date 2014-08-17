@@ -2,7 +2,7 @@
 	<div class="page-header">
 		<h1 data-ng-bind="request.title"></h1>
 	</div>
-	<div class="pull-right" data-ng-show="authentication.user.roles == 'user'">
+	<div class="pull-right" data-ng-show="authentication.user.roles == 'admin'">
 		<a class="btn btn-primary" href="/#!/requests/{{request._id}}/edit">
 			<i class="glyphicon glyphicon-edit"></i>
 		</a>
@@ -12,11 +12,53 @@
 	</div>
 	<small>
 		<em class="text-muted">
-			Posted on
-			<span data-ng-bind="request.created | date:'mediumDate'"></span>
-			by
-			<span data-ng-bind="request.user.displayName"></span>
+			Publicerades
+			<span data-ng-bind="request.created | date:'yyyy-MM-dd, hh:mm'"></span>
 		</em>
 	</small>
-	<p class="lead" data-ng-bind="request.content"></p>
+	<br><br>
+	<div class="row">
+		<div class="col-md-6">
+			<dl>
+				<dt>Adress</dt>
+				<dd data-ng-bind="request.location"></dd>
+				<dd data-ng-bind="request.city"></dd>
+			</dl>
+		</div>
+		<div class="col-md-6">
+			<dl>
+				<dt>Datum + Tid</dt>
+				<dd data-ng-bind="request.dateTime | date:'yyyy-MM-dd, hh:mm'"></dd>
+			</dl>
+		</div>
+	</div>
+	<dl>
+		<dt>Förfrågare</dt>
+		<dd data-ng-bind="request.contactName"></dd>
+		<dd data-ng-bind="request.contactEmail"></dd>
+	</dl>
+	<dl>
+		<dt>Övrig information</dt>
+		<dd data-ng-bind="request.otherInfo"></dd>
+	</dl>
+	<div class="row">
+		<div class="col-md-4">
+			<dl>
+				<dt>Talare</dt>
+				<dd data-ng-bind="request.speaker"></dd>
+			</dl>
+		</div>
+		<div class="col-md-4">
+			<dl>
+				<dt>Medföljare</dt>
+				<dd data-ng-bind="request.follower1"></dd>
+			</dl>
+		</div>
+		<div class="col-md-4">
+			<dl>
+				<dt>Medföljare</dt>
+				<dd data-ng-bind="request.follower2"></dd>
+			</dl>
+		</div>
+	</div>
 </section>
