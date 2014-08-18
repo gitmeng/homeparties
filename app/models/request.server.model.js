@@ -27,6 +27,12 @@ var RequestSchema = new Schema({
 	dateTime: {
 		type: Date
 	},
+	date: {
+		type: String
+	},
+	time: {
+		type: String
+	},
 	location: {
 		type: String,
 		default: '',
@@ -45,7 +51,8 @@ var RequestSchema = new Schema({
 	contactEmail: {
 		type: String,
 		default: '',
-		trim: true
+		trim: true,
+		required: 'Förfrågarens e-postadress måste anges.'
 	},
 	otherInfo: {
 		type: String,

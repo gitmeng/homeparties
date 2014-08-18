@@ -37,7 +37,7 @@ var getErrorMessage = function(err) {
 exports.create = function(req, res) {
 	var request = new Request(req.body);
 
-	if (typeof request.time !== 'undefined' && typeof request.dateTime !== 'undefined') {
+	if (typeof request.time !== 'undefined' && typeof request.date !== 'undefined') {
 		// Get hour and min from time
 		var timeArray = request.time.split(':');
 		var hour = timeArray[0];
