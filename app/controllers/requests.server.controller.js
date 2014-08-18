@@ -37,19 +37,6 @@ var getErrorMessage = function(err) {
 exports.create = function(req, res) {
 	var request = new Request(req.body);
 
-	if (typeof request.time !== 'undefined' && typeof request.date !== 'undefined') {
-		// Get hour and min from time
-		var timeArray = request.time.split(':');
-		var hour = timeArray[0];
-		var min = timeArray[1];
-
-		// Add missing user fields
-		request.dateTime = request.dateTime.setHours(hour, min);
-	}
-
-	delete request.time;
-	delete request.date;
-
 	request.save(function(err) {
 		if (err) {
 			return res.send(400, {
@@ -73,8 +60,6 @@ exports.read = function(req, res) {
  */
 exports.update = function(req, res) {
 	var request = req.request;
-
-	req.body.dateTime = req.body.date.setHours();
 
 	request = _.extend(request, req.body);
 

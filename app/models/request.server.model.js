@@ -24,14 +24,11 @@ var RequestSchema = new Schema({
 		trim: true,
 		required: 'Titel måste anges.'
 	},
-	dateTime: {
+	date: {
 		type: Date
 	},
-	date: {
-		type: String
-	},
 	time: {
-		type: String
+		type: Date
 	},
 	location: {
 		type: String,

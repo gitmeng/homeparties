@@ -7,7 +7,6 @@ angular.module('requests').controller('RequestsController', ['$scope', '$statePa
 		$scope.create = function() {
 			var request = new Requests({
 				title: this.title,
-				dateTime: this.dateTime,
 				date: this.date,
 				time: this.time,
 				location: this.location,
@@ -20,9 +19,9 @@ angular.module('requests').controller('RequestsController', ['$scope', '$statePa
 				// Redirect to the request view if successfully created.
 				$location.path('requests/' + response._id);
 
+				/*
 				// Reset the form if the request was successfully created.
-				this.title = null;
-				this.dateTime = null;
+				this.title = '';
 				this.date = null;
 				this.time = null;
 				this.location = null;
@@ -30,6 +29,7 @@ angular.module('requests').controller('RequestsController', ['$scope', '$statePa
 				this.contactName = null;
 				this.contactEmail = null;
 				this.otherInfo = null;
+				*/
 
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;

@@ -35,6 +35,7 @@
 	<!--Application CSS Files-->
 	{% for cssFile in cssFiles %}<link rel="stylesheet" href="{{cssFile}}">
 	{% endfor %}
+	<link rel="stylesheet" href="lib/angular-bootstrap-datetimepicker/src/css/datetimepicker.css"/>
 	
 
 	<!-- HTML5 Shim -->
@@ -60,6 +61,10 @@
 	<!--Application JavaScript Files-->
 	{% for jsFile in jsFiles %}<script type="text/javascript" src="{{jsFile}}"></script>
 	{% endfor %}
+	<script type="text/javascript" src="lib/moment/moment.js"></script>
+	<script type="text/javascript" src="lib/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="lib/bootstrap/dist/js/bootstrap.js"></script>
+	<script type="text/javascript" src="lib/angular-bootstrap-datetimepicker/src/js/datetimepicker.js"></script>
 
 	{% if process.env.NODE_ENV === 'development' %}
 	<!--Livereload script rendered -->

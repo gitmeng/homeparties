@@ -6,7 +6,7 @@
 		<div data-ng-show="error" class="alert alert-danger" role="alert">
 			<p class="alert-link" data-ng-bind="error"></p>
 		</div>
-		<form class="form-horizontal" data-ng-submit="create()" novalidate>
+		<form class="form-horizontal" id="createHomepartyForm" data-ng-submit="create()" novalidate>
 			<fieldset>
 				<div class="form-group">
 					<label class="control-label" for="title">Titel (Obligatorisk)</label>
@@ -16,27 +16,29 @@
 				</div>
 				<div class="form-group">
 					<label class="control-label" for="date">Datum</label>
-					<!--
-					<div class="controls">
-						<input type="dateTimeLocal" data-ng-model="date" id="date" class="form-control" placeholder="yyyy-MM-dd">
-					</div>
-					-->
 					<div class="dropdown">
 				    	<a class="dropdown-toggle" id="date" role="button" data-toggle="dropdown" data-target="#" href="#">
-				    		<div class="input-group"><input type="text" class="form-control" data-ng-model="date">
+				    		<div class="input-group"><input type="text" class="form-control" data-ng-model="date" mo-date-input="YYYY-MM-DD">
 				    			<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
 				    		</div>
 				      	</a>
 						<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-							<datetimepicker data-ng-model="date" data-datetimepicker-config="{ dropdownSelector: '#dropdown2' }"/>
+							<datetimepicker data-ng-model="date" data-datetimepicker-config="{ dropdownSelector: '#dropdown2', minView:'day', weekStart:1}"/>
 						</ul>
 				    </div>
 				</div>
 				<div class="form-group">
 					<label class="control-label" for="time">Tid</label>
-					<div class="controls">
-						<input type="time" data-ng-model="time" id="time" class="form-control" placeholder="mm:hh">
-					</div>
+					<div class="dropdown">
+				    	<a class="dropdown-toggle" id="time" role="button" data-toggle="dropdown" data-target="#" href="#">
+				    		<div class="input-group"><input type="text" class="form-control" data-ng-model="time" mo-date-input="hh:mm">
+				    			<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+				    		</div>
+				      	</a>
+						<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+							<datetimepicker data-ng-model="time" data-datetimepicker-config="{ dropdownSelector: '#dropdown2', startView:'hour', minView:'minute'}"/>
+						</ul>
+				    </div>
 				</div>
 				<div class="form-group">
 					<label class="control-label" for="location">Plats</label>

@@ -18,17 +18,17 @@
 	</small>
 	<br><br>
 	<div class="row">
-		<div class="col-md-6">
+		<div class="col-md-4">
 			<dl>
 				<dt>Adress</dt>
 				<dd data-ng-bind="request.location"></dd>
 				<dd data-ng-bind="request.city"></dd>
 			</dl>
 		</div>
-		<div class="col-md-6">
+		<div class="col-md-4">
 			<dl>
 				<dt>Datum + Tid</dt>
-				<dd data-ng-bind="request.dateTime | date:'yyyy-MM-dd, hh:mm'"></dd>
+				<dd>{{request.date | date:'yyyy-MM-dd'}} {{request.time | date:'h:mm'}}</dd>
 			</dl>
 		</div>
 	</div>
