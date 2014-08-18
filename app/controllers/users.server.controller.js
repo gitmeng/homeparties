@@ -380,3 +380,18 @@ exports.removeOAuthProvider = function(req, res, next) {
 		});
 	}
 };
+
+/**
+ * List of Requests
+ */
+exports.list = function(req, res) {
+	User.find().sort('displayName').exec(function(err, users) {
+		if (err) {
+			return res.send(400, {
+				message: getErrorMessage(err)
+			});
+		} else {
+			res.jsonp(users);
+		}
+	});
+};

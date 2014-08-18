@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('users').controller('UsersController', ['$scope', '$http', '$location', 'Authentication',
-	function($scope, $http, $location, Authentication) {
+angular.module('users').controller('UsersController', ['$scope', '$http', '$location', 'Authentication', 'Users',
+	function($scope, $http, $location, Authentication, Users) {
 		$scope.authentication = Authentication;
 
 		$scope.signup = function() {
@@ -14,6 +14,10 @@ angular.module('users').controller('UsersController', ['$scope', '$http', '$loca
 			}).error(function(response) {
 				$scope.error = response.message;
 			});
+		};
+
+		$scope.find = function() {
+			$scope.users = Users.query();
 		};
 	}
 ]);

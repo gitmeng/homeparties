@@ -34,7 +34,7 @@ angular.module('users').run(['Menus',
 	function(Menus) {
 		// Set top bar menu items
 		Menus.addMenuItem('topbar', 'Användare', 'users', 'dropdown');
-		Menus.addSubMenuItem('topbar', 'users', 'Alla användare');
-		Menus.addSubMenuItem('topbar', 'users', 'Skapa användare', 'users/create', undefined, undefined);
+		Menus.addSubMenuItem('topbar', 'users', 'Alla Användare', 'users');
+		Menus.addSubMenuItem('topbar', 'users', 'Skapa Användare', 'users/create', undefined, undefined);
 	}
 ]);
