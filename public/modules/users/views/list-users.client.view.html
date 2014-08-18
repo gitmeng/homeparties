@@ -1,0 +1,22 @@
+<section data-ng-controller="UsersController" data-ng-init="find()">
+	<div class="page-header">
+		<h1>Alla Användare</h1>
+	</div>
+	<form class="form-vertical">
+		<div class="form-group">
+			<label class="control-label" for="title">Sök användare:</label>
+			<div class="controls">
+				<input type="text" data-ng-model="searchText" id="search" class="form-control" placeholder="Sök">
+			</div>
+		</div>
+	</form>
+	<div class="list-group">
+		<a data-ng-repeat="user in users | filter:searchText" class="list-group-item">
+			<h4 class="list-group-item-heading" data-ng-bind="user.displayName"></h4>
+			<p class="list-group-item-text" data-ng-bind="user.email"></p>
+		</a>
+	</div>
+	<div class="alert alert-warning text-center" data-ng-if="users.$resolved && !users.length">
+		Det finns för närvarande inga användare.
+	</div>
+</section>
