@@ -1,0 +1,64 @@
+<section data-ng-controller="RequestsController" data-ng-init="findOne()">
+	<div class="page-header">
+		<h1 data-ng-bind="request.title"></h1>
+	</div>
+	<div class="pull-right" data-ng-show="authentication.user.roles == 'admin'">
+		<a class="btn btn-primary" href="/#!/requests/{{request._id}}/edit">
+			<i class="glyphicon glyphicon-edit"></i>
+		</a>
+		<a class="btn btn-primary" data-ng-click="remove();">
+			<i class="glyphicon glyphicon-trash"></i>
+		</a>
+	</div>
+	<small>
+		<em class="text-muted">
+			Publicerades
+			<span data-ng-bind="request.created | date:'yyyy-MM-dd, HH:mm'"></span>
+		</em>
+	</small>
+	<br><br>
+	<div class="row">
+		<div class="col-md-4">
+			<dl>
+				<dt>Adress</dt>
+				<dd data-ng-bind="request.location"></dd>
+				<dd data-ng-bind="request.city"></dd>
+			</dl>
+		</div>
+		<div class="col-md-4">
+			<dl>
+				<dt>Datum + Tid</dt>
+				<dd>{{request.date | date:'yyyy-MM-dd'}}, {{request.time | date:'HH:mm'}}</dd>
+			</dl>
+		</div>
+	</div>
+	<dl>
+		<dt>Förfrågare</dt>
+		<dd data-ng-bind="request.contactName"></dd>
+		<dd data-ng-bind="request.contactEmail"></dd>
+	</dl>
+	<dl>
+		<dt>Övrig information</dt>
+		<dd data-ng-bind="request.otherInfo"></dd>
+	</dl>
+	<div class="row">
+		<div class="col-md-4">
+			<dl>
+				<dt>Talare</dt>
+				<dd data-ng-bind="request.speaker"></dd>
+			</dl>
+		</div>
+		<div class="col-md-4">
+			<dl>
+				<dt>Medföljare</dt>
+				<dd data-ng-bind="request.follower1"></dd>
+			</dl>
+		</div>
+		<div class="col-md-4">
+			<dl>
+				<dt>Medföljare</dt>
+				<dd data-ng-bind="request.follower2"></dd>
+			</dl>
+		</div>
+	</div>
+</section>
