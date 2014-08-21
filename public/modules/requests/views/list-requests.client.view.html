@@ -4,14 +4,14 @@
 	</div>
 	<form class="form-vertical" data-ng-if="requests.$resolved && requests.length">
 		<div class="form-group">
-			<label class="control-label" for="title">Sök homeparty:</label>
+			<label class="control-label" for="search">Sök homeparty:</label>
 			<div class="controls">
-				<input type="text" data-ng-model="searchText" id="search" class="form-control" placeholder="Sök">
+				<input type="text" data-ng-model="requestSearchText" id="search" class="form-control" placeholder="Sök">
 			</div>
 		</div>
 	</form>
 	<div class="list-group">
-		<a data-ng-repeat="request in requests | filter: searchText" data-ng-href="#!/requests/{{request._id}}" class="list-group-item">
+		<a data-ng-repeat="request in requests | filter:requestSearchText" data-ng-href="#!/requests/{{request._id}}" class="list-group-item">
 			<small class="list-group-item-text">
 				Publicerades 
 				<span data-ng-bind="request.created | date:'yyyy-MM-dd, HH:mm'"></span>
