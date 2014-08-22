@@ -1,26 +1,29 @@
-<section data-ng-controller="RequestsController" data-ng-init="findOne()">
-	<div class="page-header">
-		<h1>Ändra förfrågan</h1>
+<section data-ng-controller="AdminRequestsController">
+	<div class="page-header" id="header">
+		<h1>Nytt Homeparty</h1>
 	</div>
 	<div class="col-md-12">
-		<form class="form-horizontal" data-ng-submit="update()" novalidate>
+		<div data-ng-show="error" class="alert alert-danger" role="alert">
+			<p class="alert-link" data-ng-bind="error"></p>
+		</div>
+		<form class="form-horizontal" id="createHomepartyForm" data-ng-submit="create()" novalidate>
 			<fieldset>
 				<div class="form-group">
 					<label class="control-label" for="title">Titel (Obligatorisk)</label>
 					<div class="controls">
-						<input type="text" data-ng-model="request.title" id="title" class="form-control" placeholder="Titel" required>
+						<input type="text" data-ng-model="title" id="title" class="form-control" placeholder="Title" required>
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label" for="date">Datum</label>
 					<div class="dropdown">
 				    	<a class="dropdown-toggle" id="date" role="button" data-toggle="dropdown" data-target="#" href="#">
-				    		<div class="input-group"><input type="text" class="form-control" data-ng-model="request.date" mo-date-input="YYYY-MM-DD">
+				    		<div class="input-group"><input type="text" class="form-control" data-ng-model="date" mo-date-input="YYYY-MM-DD">
 				    			<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
 				    		</div>
 				      	</a>
 						<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-							<datetimepicker data-ng-model="request.date" data-datetimepicker-config="{ dropdownSelector: '#dropdown2', minView:'day', weekStart:1}"/>
+							<datetimepicker data-ng-model="date" data-datetimepicker-config="{ dropdownSelector: '#dropdown2', minView:'day', weekStart:1}"/>
 						</ul>
 				    </div>
 				</div>
@@ -28,50 +31,47 @@
 					<label class="control-label" for="time">Tid</label>
 					<div class="dropdown">
 				    	<a class="dropdown-toggle" id="time" role="button" data-toggle="dropdown" data-target="#" href="#">
-				    		<div class="input-group"><input type="text" class="form-control" data-ng-model="request.time" mo-date-input="HH:mm">
+				    		<div class="input-group"><input type="text" class="form-control" data-ng-model="time" mo-date-input="hh:mm">
 				    			<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
 				    		</div>
 				      	</a>
 						<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-							<datetimepicker data-ng-model="request.time" data-datetimepicker-config="{ dropdownSelector: '#dropdown2', startView:'hour', minView:'minute'}"/>
+							<datetimepicker data-ng-model="time" data-datetimepicker-config="{ dropdownSelector: '#dropdown2', startView:'hour', minView:'minute'}"/>
 						</ul>
 				    </div>
 				</div>
 				<div class="form-group">
 					<label class="control-label" for="location">Plats/Adress</label>
 					<div class="controls">
-						<input type="text" data-ng-model="request.location" id="location" class="form-control" placeholder="Plats/adress">
+						<input type="text" data-ng-model="location" id="location" class="form-control" placeholder="Plats/adress">
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label" for="city">Stad</label>
 					<div class="controls">
-						<input type="text" data-ng-model="request.city" id="city" class="form-control" placeholder="Stad">
+						<input type="text" data-ng-model="city" id="city" class="form-control" placeholder="Stad">
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label" for="contactName">Förfrågare</label>
 					<div class="controls">
-						<input type="text" data-ng-model="request.contactName" id="contactName" class="form-control" placeholder="Namn">
+						<input type="text" data-ng-model="contactName" id="contactName" class="form-control" placeholder="Namn">
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label" for="contactEmail">Förfrågarens e-postadress (Obligatorisk)</label>
 					<div class="controls">
-						<input type="text" data-ng-model="request.contactEmail" id="contactEmail" class="form-control" placeholder="E-postadress" required>
+						<input type="text" data-ng-model="contactEmail" id="contactEmail" class="form-control" placeholder="E-postadress" required>
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="control-label" for="content">Övrig information</label>
+					<label class="control-label" for="otherInfo">Övrig information</label>
 					<div class="controls">
-						<textarea data-ng-model="request.otherInfo" id="content" class="form-control" cols="30" rows="10" placeholder="Övrig information"></textarea>
+						<textarea data-ng-model="otherInfo" id="otherInfo" class="form-control" cols="30" rows="10" placeholder="T.ex. Portkod, Antal personer mm."></textarea>
 					</div>
 				</div>
 				<div class="form-group">
-					<input type="submit" value="Uppdatera" class="btn btn-default">
-				</div>
-				<div data-ng-show="error" class="text-danger">
-					<strong data-ng-bind="error"></strong>
+					<button type="submit" class="btn btn-default">Lägg till förfrågan</button>
 				</div>
 			</fieldset>
 		</form>

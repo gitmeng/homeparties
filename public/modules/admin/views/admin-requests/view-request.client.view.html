@@ -1,9 +1,17 @@
-<section data-ng-controller="RequestsController" data-ng-init="findOne()">
+<section data-ng-controller="AdminRequestsController" data-ng-init="findOne()">
 	<div class="page-header">
 		<h1 data-ng-bind="request.title"></h1>
 	</div>
-	<div class="pull-right" data-ng-show="authentication.user.roles == 'admin'">
-		<a class="btn btn-primary" href="/#!/requests/{{request._id}}/edit">
+	<div class="pull-right" data-ng-show="containsObject('admin', authentication.user.roles)">
+		<div class="btn-group" data-toggle="buttons">
+			<label class="btn btn-primary active">
+				<input type="radio" name="options" id="option1" checked> Publicera
+			</label>
+			<label class="btn btn-primary">
+				<input type="radio" name="options" id="option2"> Avpublicera
+			</label>
+		</div>
+		<a class="btn btn-primary" href="/#!/admin/requests/{{request._id}}/edit">
 			<i class="glyphicon glyphicon-edit"></i>
 		</a>
 		<a class="btn btn-primary" data-ng-click="remove();">
