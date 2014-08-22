@@ -3,23 +3,32 @@
 // Setting up route
 angular.module('admin').config(['$stateProvider',
 	function($stateProvider) {
-		// Requests state routing
+		// Requests admin routes
 		$stateProvider.
 		state('adminRequests', {
 			url: '/admin/requests',
-			templateUrl: 'modules/admin/views/list-requests.client.view.html'
+			templateUrl: 'modules/admin/views/admin-requests/list-requests.client.view.html'
 		}).
 		state('adminCreateRequest', {
-			url: '/requests/create',
-			templateUrl: 'modules/admin/views/create-request.client.view.html'
+			url: '/admin/requests/create',
+			templateUrl: 'modules/admin/views/admin-requests/create-request.client.view.html'
 		}).
 		state('adminViewRequest', {
-			url: '/requests/:requestId',
-			templateUrl: 'modules/admin/views/view-request.client.view.html'
+			url: '/admin/requests/:requestId',
+			templateUrl: 'modules/admin/views/admin-requests/view-request.client.view.html'
 		}).
 		state('adminEditRequest', {
-			url: '/requests/:requestId/edit',
-			templateUrl: 'modules/admin/views/edit-request.client.view.html'
+			url: '/admin/requests/:requestId/edit',
+			templateUrl: 'modules/admin/views/admin-requests/edit-request.client.view.html'
+		}).
+		// Users admin routes
+		state('adminUsers', {
+			url: '/admin/users',
+			templateUrl: 'modules/admin/views/admin-users/list-users.client.view.html'
+		}).
+		state('adminCreateUser', {
+			url: '/admin/users/create',
+			templateUrl: 'modules/admin/views/admin-users/create-user.client.view.html'
 		});
 	}
 ]);
