@@ -1,27 +1,45 @@
 <section data-ng-controller="RequestsController" data-ng-init="find()">
 	<div class="page-header">
-		<h1>Alla Homeparties</h1>
+		<h1>Homeparty Förfrågningar</h1>
 	</div>
-	<form class="form-vertical" data-ng-show="requests.$resolved && requests.length">
-		<div class="form-group">
-			<label class="control-label" for="search">Sök homeparty:</label>
-			<div class="controls">
-				<input type="text" data-ng-model="requestSearchText" id="search" class="form-control" placeholder="Sök">
+	<div class="col-md-2" data-ng-show="requests.$resolved && requests.length">
+		<form class="form-vertical" data-ng-show="requests.$resolved && requests.length">
+			<div class="form-group">
+				<label class="control-label" for="search">Sök homeparty:</label>
+				<div class="controls">
+					<div class="input-group">
+						<span class="input-group-addon glyphicon glyphicon-search"></span>
+						<input type="text" data-ng-model="requestSearchText" id="search" class="form-control" placeholder="Sök">
+					</div>
+				</div>
 			</div>
-		</div>
-	</form>
-	<div class="list-group">
-		<a data-ng-repeat="request in requests | filter:requestSearchText" data-ng-href="#!/requests/{{request._id}}" class="list-group-item">
-			<small class="list-group-item-text">
-				Publicerades 
-				<span data-ng-bind="request.created | date:'yyyy-MM-dd, HH:mm'"></span>
-			</small>
-			<h4 class="list-group-item-heading" data-ng-bind="request.title"></h4>
-			<p class="list-group-item-text">{{request.date | date:"yyyy-MM-dd"}} {{request.time | date:"HH:mm"}}</p>
-			<p class="list-group-item-text" data-ng-bind="request.city"></p>
-		</a>
+		</form>
+		<form class="form-vertical">
+			<div class="form-group">
+				<label class="control-label" for="orderBy">Filtrera på:</label>
+				<div class="controls">
+					<select ng-model="orderProp" id="orderBy" class="form-control">
+						<option value="title">Titel</option>
+						<option value="created">Datum skapad</option>
+					</select>
+				</div>
+			</div>
+		</form>
 	</div>
-	<div class="alert alert-warning text-center" data-ng-if="requests.$resolved && !requests.length">
-		Det finns för närvarande inga homeparty förfrågningar.
+	<div class="col-md-10" data-ng-show="requests.$resolved && requests.length">
+		<div class="list-group">
+			<a data-ng-repeat="request in requests | filter:requestSearchText | orderBy:orderProp | isPublished" data-ng-href="#!/requests/{{request._id}}" class="list-group-item">
+				<small class="list-group-item-text">
+					Publicerades 
+					<span data-ng-bind="request.created | date:'yyyy-MM-dd, HH:mm'"></span>
+				</small>
+				<h4 class="list-group-item-heading" data-ng-bind="request.title"></h4>
+				<p class="list-group-item-text">{{request.date | date:"yyyy-MM-dd"}} {{request.time | date:"HH:mm"}}</p>
+				<p class="list-group-item-text" data-ng-bind="request.city"></p>
+			</a>
+		</div>
+		<div class="alert alert-warning text-center" data-ng-if="requests.$resolved && !requests.length">
+			Det finns för närvarande inga homeparty förfrågningar.
+		</div>
 	</div>
 </section>
