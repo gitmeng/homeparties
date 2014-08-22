@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('admin').controller('AdminController', ['$scope', '$stateParams', '$location', '$anchorScroll', 'Authentication', 'Requests',
+angular.module('admin').controller('AdminRequestsController', ['$scope', '$stateParams', '$location', '$anchorScroll', 'Authentication', 'Requests',
 	function($scope, $stateParams, $location, $anchorScroll, Authentication, Requests) {
 		$scope.authentication = Authentication;
 
@@ -64,6 +64,16 @@ angular.module('admin').controller('AdminController', ['$scope', '$stateParams',
 			$scope.request = Requests.get({
 				requestId: $stateParams.requestId
 			});
+		};
+
+		$scope.containsObject = function (obj, list) {
+			var i;
+			for (i = 0; i < list.length; i++) {
+				if (list[i] === obj) {
+					return true;
+				}
+			}
+			return false;
 		};
 	}
 ]);
