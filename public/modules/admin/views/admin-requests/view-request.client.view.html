@@ -3,14 +3,8 @@
 		<h1 data-ng-bind="request.title"></h1>
 	</div>
 	<div class="pull-right" data-ng-show="containsObject('admin', authentication.user.roles)">
-		<div class="btn-group" data-toggle="buttons">
-			<label class="btn btn-primary active">
-				<input type="radio" name="options" id="option1" checked> Publicera
-			</label>
-			<label class="btn btn-primary">
-				<input type="radio" name="options" id="option2"> Avpublicera
-			</label>
-		</div>
+		<input type="radio" data-ng-model="request.published" data-ng-change="update()" value="true"> Publicera
+		<input type="radio" data-ng-model="request.published" data-ng-change="update()" value="false"> Avpublicera
 		<a class="btn btn-primary" href="/#!/admin/requests/{{request._id}}/edit">
 			<i class="glyphicon glyphicon-edit"></i>
 		</a>
