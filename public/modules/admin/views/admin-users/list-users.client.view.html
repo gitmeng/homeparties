@@ -16,9 +16,9 @@
 		</form>
 		<form class="form-vertical">
 			<div class="form-group">
-				<label class="control-label" for="orderBy">Filtrera på:</label>
+				<label class="control-label" for="orderBy">Sortera på:</label>
 				<div class="controls">
-					<select ng-model="orderProp" id="orderBy" class="form-control">
+					<select data-ng-model="orderProp" id="orderBy" class="form-control">
 						<option value="firstName">Förnamn</option>
 						<option value="lastName">Efternamn</option>
 					</select>
@@ -40,6 +40,7 @@
 		<div class="list-group">
 			<a data-ng-repeat="user in users | filter:userSearchText | orderBy:orderProp" class="list-group-item">
 				<h4 class="list-group-item-heading" data-ng-bind="user.displayName"></h4>
+				<p class="list-group-item-text" data-ng-bind="user.roles"></p>
 				<p class="list-group-item-text" data-ng-bind="user.email"></p>
 			</a>
 		</div>
