@@ -4,6 +4,8 @@ angular.module('admin').controller('AdminRequestsController', ['$scope', '$state
 	function($scope, $stateParams, $location, $anchorScroll, Authentication, Requests) {
 		$scope.authentication = Authentication;
 
+		$scope.orderProp = 'title';
+
 		$scope.create = function() {
 			var request = new Requests({
 				title: this.title,
@@ -48,7 +50,6 @@ angular.module('admin').controller('AdminRequestsController', ['$scope', '$state
 
 		$scope.update = function() {
 			var request = $scope.request;
-
 			request.$update(function() {
 				$location.path('admin/requests/' + request._id);
 			}, function(errorResponse) {
