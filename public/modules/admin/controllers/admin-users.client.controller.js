@@ -4,6 +4,8 @@ angular.module('users').controller('AdminUsersController', ['$scope', '$http', '
 	function($scope, $http, $location, Authentication, Users) {
 		$scope.authentication = Authentication;
 
+		$scope.orderProp = 'firstName';
+
 		$scope.signup = function() {
 			$http.post('/auth/signup', $scope.credentials).success(function(response) {
 				//If successful we assign the response to the global user model
