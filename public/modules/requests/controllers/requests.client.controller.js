@@ -4,6 +4,8 @@ angular.module('requests').controller('RequestsController', ['$scope', '$statePa
 	function($scope, $stateParams, $location, $anchorScroll, Authentication, Requests) {
 		$scope.authentication = Authentication;
 
+		$scope.orderProp = 'title';
+
 		$scope.create = function() {
 			var request = new Requests({
 				title: this.title,
