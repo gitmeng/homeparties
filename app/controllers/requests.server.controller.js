@@ -7,7 +7,7 @@ var mongoose = require('mongoose'),
 	Request = mongoose.model('Request'),
 	_ = require('lodash');
 
-
+// Filter the requests by the user's role. If not admin, the list of requests will not include unpublished requests.
 function filterByRole(roles, query) {
 	if (roles.indexOf('admin')<0) {
 		query = query.where('published').equals(true);

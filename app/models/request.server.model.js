@@ -15,6 +15,9 @@ var RequestSchema = new Schema({
 		type: Date,
 		default: Date.now
 	},
+	publishedTime: {
+		type: Date
+	},
 	published: {
 		type: Boolean,
 		default: false

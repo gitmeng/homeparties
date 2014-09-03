@@ -8,18 +8,19 @@ var passport = require('passport');
 module.exports = function(app) {
 	// User Routes
 	var users = require('../../app/controllers/users');
-	app.route('/users/me').get(users.me);
+	app.route('/users/me').get(users.requiresLogin, users.me);
 	app.route('/users')
-		.get(users.list)
-		.put(users.update);
-	app.route('/users/password').post(users.changePassword);
-	app.route('/users/accounts').delete(users.removeOAuthProvider);
+		.get(users.requiresLogin, users.list)
+		.put(users.requiresLogin, users.update);
+	app.route('/users/password').post(users.requiresLogin, users.changePassword);
+	app.route('/users/accounts').delete(users.requiresLogin, users.removeOAuthProvider);
 
 	// Setting up the users api
 	app.route('/auth/signup').post(users.signup);
 	app.route('/auth/signin').post(users.signin);
-	app.route('/auth/signout').get(users.signout);
+	app.route('/auth/signout').get(users.requiresLogin, users.signout);
 
+	/*
 	// Setting the facebook oauth routes
 	app.route('/auth/facebook').get(passport.authenticate('facebook', {
 		scope: ['email']
@@ -42,6 +43,7 @@ module.exports = function(app) {
 	// Setting the linkedin oauth routes
 	app.route('/auth/linkedin').get(passport.authenticate('linkedin'));
 	app.route('/auth/linkedin/callback').get(users.oauthCallback('linkedin'));
+	*/
 
 	// Finish by binding the user middleware
 	app.param('userId', users.userByID);

@@ -79,6 +79,9 @@ angular.module('admin').controller('AdminRequestsController', ['$scope', '$state
 
 		$scope.togglePublish = function () {
 			$scope.request.published = !$scope.request.published;
+			if ($scope.request.published===true) {
+				$scope.request.publishedTime = Date.now();
+			}
 			$scope.update();
 		};
 	}
