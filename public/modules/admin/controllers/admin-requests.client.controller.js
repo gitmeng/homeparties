@@ -76,5 +76,10 @@ angular.module('admin').controller('AdminRequestsController', ['$scope', '$state
 			}
 			return false;
 		};
+
+		$scope.togglePublish = function () {
+			$scope.request.published = !$scope.request.published;
+			$scope.update();
+		};
 	}
 ]);

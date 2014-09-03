@@ -2,13 +2,14 @@
 	<div class="page-header">
 		<h1 data-ng-bind="request.title"></h1>
 	</div>
-	<div class="pull-right" data-ng-show="containsObject('admin', authentication.user.roles)">
-		<input type="radio" data-ng-model="request.published" data-ng-change="update()" value="true"> Publicera
-		<input type="radio" data-ng-model="request.published" data-ng-change="update()" value="false"> Avpublicera
+	<div class="pull-right">
+		<button type="button" data-ng-init="updateButtonText()" data-ng-click="togglePublish()" class="btn btn-primary">
+  		{{request.published ? 'Avpublicera' : 'Publicera'}}
+		</button>
 		<a class="btn btn-primary" href="/#!/admin/requests/{{request._id}}/edit">
 			<i class="glyphicon glyphicon-edit"></i>
 		</a>
-		<a class="btn btn-primary" data-ng-click="remove();">
+		<a class="btn btn-primary" data-ng-click="remove()">
 			<i class="glyphicon glyphicon-trash"></i>
 		</a>
 	</div>
